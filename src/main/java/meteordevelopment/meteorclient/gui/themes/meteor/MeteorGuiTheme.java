@@ -45,8 +45,14 @@ public class MeteorGuiTheme extends GuiTheme {
     private final SettingGroup sgSlider = settings.createGroup("Slider");
     private final SettingGroup sgStarscript = settings.createGroup("Starscript");
 
-    // General
+    // Poop brown palette
+    private static final SettingColor DARK_BROWN = new SettingColor(60, 40, 20);
+    private static final SettingColor MEDIUM_BROWN = new SettingColor(120, 72, 36);
+    private static final SettingColor LIGHT_BROWN = new SettingColor(181, 101, 29);
+    private static final SettingColor YELLOW_BROWN = new SettingColor(153, 101, 21);
+    private static final SettingColor TAN = new SettingColor(210, 180, 140);
 
+    // General
     public final Setting<Double> scale = sgGeneral.add(new DoubleSetting.Builder()
         .name("scale")
         .description("Scale of the GUI.")
@@ -85,89 +91,78 @@ public class MeteorGuiTheme extends GuiTheme {
     );
 
     // Colors
-
-    public final Setting<SettingColor> accentColor = color("accent", "Main color of the GUI.", new SettingColor(145, 61, 226));
-    public final Setting<SettingColor> checkboxColor = color("checkbox", "Color of checkbox.", new SettingColor(145, 61, 226));
-    public final Setting<SettingColor> plusColor = color("plus", "Color of plus button.", new SettingColor(50, 255, 50));
-    public final Setting<SettingColor> minusColor = color("minus", "Color of minus button.", new SettingColor(255, 50, 50));
-    public final Setting<SettingColor> favoriteColor = color("favorite", "Color of checked favorite button.", new SettingColor(250, 215, 0));
+    public final Setting<SettingColor> accentColor = color("accent", "Main color of the GUI.", MEDIUM_BROWN);
+    public final Setting<SettingColor> checkboxColor = color("checkbox", "Color of checkbox.", MEDIUM_BROWN);
+    public final Setting<SettingColor> plusColor = color("plus", "Color of plus button.", LIGHT_BROWN);
+    public final Setting<SettingColor> minusColor = color("minus", "Color of minus button.", YELLOW_BROWN);
+    public final Setting<SettingColor> favoriteColor = color("favorite", "Color of checked favorite button.", TAN);
 
     // Text
-
-    public final Setting<SettingColor> textColor = color(sgTextColors, "text", "Color of text.", new SettingColor(255, 255, 255));
-    public final Setting<SettingColor> textSecondaryColor = color(sgTextColors, "text-secondary-text", "Color of secondary text.", new SettingColor(150, 150, 150));
-    public final Setting<SettingColor> textHighlightColor = color(sgTextColors, "text-highlight", "Color of text highlighting.", new SettingColor(45, 125, 245, 100));
-    public final Setting<SettingColor> titleTextColor = color(sgTextColors, "title-text", "Color of title text.", new SettingColor(255, 255, 255));
-    public final Setting<SettingColor> loggedInColor = color(sgTextColors, "logged-in-text", "Color of logged in account name.", new SettingColor(45, 225, 45));
-    public final Setting<SettingColor> placeholderColor = color(sgTextColors, "placeholder", "Color of placeholder text.", new SettingColor(255, 255, 255, 20));
+    public final Setting<SettingColor> textColor = color(sgTextColors, "text", "Color of text.", LIGHT_BROWN);
+    public final Setting<SettingColor> textSecondaryColor = color(sgTextColors, "text-secondary-text", "Color of secondary text.", YELLOW_BROWN);
+    public final Setting<SettingColor> textHighlightColor = color(sgTextColors, "text-highlight", "Color of text highlighting.", new SettingColor(210, 180, 140, 100));
+    public final Setting<SettingColor> titleTextColor = color(sgTextColors, "title-text", "Color of title text.", MEDIUM_BROWN);
+    public final Setting<SettingColor> loggedInColor = color(sgTextColors, "logged-in-text", "Color of logged in account name.", LIGHT_BROWN);
+    public final Setting<SettingColor> placeholderColor = color(sgTextColors, "placeholder", "Color of placeholder text.", new SettingColor(120, 72, 36, 20));
 
     // Background
-
     public final ThreeStateColorSetting backgroundColor = new ThreeStateColorSetting(
             sgBackgroundColors,
             "background",
-            new SettingColor(20, 20, 20, 200),
-            new SettingColor(30, 30, 30, 200),
-            new SettingColor(40, 40, 40, 200)
+            new SettingColor(60, 40, 20, 200),
+            new SettingColor(120, 72, 36, 200),
+            new SettingColor(181, 101, 29, 200)
     );
-
-    public final Setting<SettingColor> moduleBackground = color(sgBackgroundColors, "module-background", "Color of module background when active.", new SettingColor(50, 50, 50));
+    public final Setting<SettingColor> moduleBackground = color(sgBackgroundColors, "module-background", "Color of module background when active.", MEDIUM_BROWN);
 
     // Outline
-
     public final ThreeStateColorSetting outlineColor = new ThreeStateColorSetting(
             sgOutline,
             "outline",
-            new SettingColor(0, 0, 0),
-            new SettingColor(10, 10, 10),
-            new SettingColor(20, 20, 20)
+            DARK_BROWN,
+            MEDIUM_BROWN,
+            LIGHT_BROWN
     );
 
     // Separator
-
-    public final Setting<SettingColor> separatorText = color(sgSeparator, "separator-text", "Color of separator text", new SettingColor(255, 255, 255));
-    public final Setting<SettingColor> separatorCenter = color(sgSeparator, "separator-center", "Center color of separators.", new SettingColor(255, 255, 255));
-    public final Setting<SettingColor> separatorEdges = color(sgSeparator, "separator-edges", "Color of separator edges.", new SettingColor(225, 225, 225, 150));
+    public final Setting<SettingColor> separatorText = color(sgSeparator, "separator-text", "Color of separator text", LIGHT_BROWN);
+    public final Setting<SettingColor> separatorCenter = color(sgSeparator, "separator-center", "Center color of separators.", YELLOW_BROWN);
+    public final Setting<SettingColor> separatorEdges = color(sgSeparator, "separator-edges", "Color of separator edges.", new SettingColor(120, 72, 36, 150));
 
     // Scrollbar
-
     public final ThreeStateColorSetting scrollbarColor = new ThreeStateColorSetting(
             sgScrollbar,
             "Scrollbar",
-            new SettingColor(30, 30, 30, 200),
-            new SettingColor(40, 40, 40, 200),
-            new SettingColor(50, 50, 50, 200)
+            new SettingColor(60, 40, 20, 200),
+            new SettingColor(120, 72, 36, 200),
+            new SettingColor(181, 101, 29, 200)
     );
 
     // Slider
-
     public final ThreeStateColorSetting sliderHandle = new ThreeStateColorSetting(
             sgSlider,
             "slider-handle",
-            new SettingColor(130, 0, 255),
-            new SettingColor(140, 30, 255),
-            new SettingColor(150, 60, 255)
+            YELLOW_BROWN,
+            LIGHT_BROWN,
+            TAN
     );
-
-    public final Setting<SettingColor> sliderLeft = color(sgSlider, "slider-left", "Color of slider left part.", new SettingColor(100,35,170));
-    public final Setting<SettingColor> sliderRight = color(sgSlider, "slider-right", "Color of slider right part.", new SettingColor(50, 50, 50));
+    public final Setting<SettingColor> sliderLeft = color(sgSlider, "slider-left", "Color of slider left part.", MEDIUM_BROWN);
+    public final Setting<SettingColor> sliderRight = color(sgSlider, "slider-right", "Color of slider right part.", DARK_BROWN);
 
     // Starscript
-
-    private final Setting<SettingColor> starscriptText = color(sgStarscript, "starscript-text", "Color of text in Starscript code.", new SettingColor(169, 183, 198));
-    private final Setting<SettingColor> starscriptBraces = color(sgStarscript, "starscript-braces", "Color of braces in Starscript code.", new SettingColor(150, 150, 150));
-    private final Setting<SettingColor> starscriptParenthesis = color(sgStarscript, "starscript-parenthesis", "Color of parenthesis in Starscript code.", new SettingColor(169, 183, 198));
-    private final Setting<SettingColor> starscriptDots = color(sgStarscript, "starscript-dots", "Color of dots in starscript code.", new SettingColor(169, 183, 198));
-    private final Setting<SettingColor> starscriptCommas = color(sgStarscript, "starscript-commas", "Color of commas in starscript code.", new SettingColor(169, 183, 198));
-    private final Setting<SettingColor> starscriptOperators = color(sgStarscript, "starscript-operators", "Color of operators in Starscript code.", new SettingColor(169, 183, 198));
-    private final Setting<SettingColor> starscriptStrings = color(sgStarscript, "starscript-strings", "Color of strings in Starscript code.", new SettingColor(106, 135, 89));
-    private final Setting<SettingColor> starscriptNumbers = color(sgStarscript, "starscript-numbers", "Color of numbers in Starscript code.", new SettingColor(104, 141, 187));
-    private final Setting<SettingColor> starscriptKeywords = color(sgStarscript, "starscript-keywords", "Color of keywords in Starscript code.", new SettingColor(204, 120, 50));
-    private final Setting<SettingColor> starscriptAccessedObjects = color(sgStarscript, "starscript-accessed-objects", "Color of accessed objects (before a dot) in Starscript code.", new SettingColor(152, 118, 170));
+    private final Setting<SettingColor> starscriptText = color(sgStarscript, "starscript-text", "Color of text in Starscript code.", LIGHT_BROWN);
+    private final Setting<SettingColor> starscriptBraces = color(sgStarscript, "starscript-braces", "Color of braces in Starscript code.", MEDIUM_BROWN);
+    private final Setting<SettingColor> starscriptParenthesis = color(sgStarscript, "starscript-parenthesis", "Color of parenthesis in Starscript code.", YELLOW_BROWN);
+    private final Setting<SettingColor> starscriptDots = color(sgStarscript, "starscript-dots", "Color of dots in starscript code.", LIGHT_BROWN);
+    private final Setting<SettingColor> starscriptCommas = color(sgStarscript, "starscript-commas", "Color of commas in starscript code.", YELLOW_BROWN);
+    private final Setting<SettingColor> starscriptOperators = color(sgStarscript, "starscript-operators", "Color of operators in Starscript code.", MEDIUM_BROWN);
+    private final Setting<SettingColor> starscriptStrings = color(sgStarscript, "starscript-strings", "Color of strings in Starscript code.", TAN);
+    private final Setting<SettingColor> starscriptNumbers = color(sgStarscript, "starscript-numbers", "Color of numbers in Starscript code.", LIGHT_BROWN);
+    private final Setting<SettingColor> starscriptKeywords = color(sgStarscript, "starscript-keywords", "Color of keywords in Starscript code.", YELLOW_BROWN);
+    private final Setting<SettingColor> starscriptAccessedObjects = color(sgStarscript, "starscript-accessed-objects", "Color of accessed objects (before a dot) in Starscript code.", MEDIUM_BROWN);
 
     public MeteorGuiTheme() {
         super("Meteor");
-
         settingsFactory = new DefaultSettingsWidgetFactory(this);
     }
 
